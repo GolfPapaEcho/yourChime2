@@ -47,7 +47,7 @@ void fireSolenoid() {
   digitalWrite(solenoidPin, LOW);
   Serial.print("\nFired Solenoid");
 }
-void flashLight() {
+void flashLight() {     //flashes led number of times as state number (used when entering new state)
   for (byte l = 0; l < stateNumber; l++) {
     digitalWrite(LED_BUILTIN, 1);
     delay(500);
