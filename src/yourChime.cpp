@@ -31,7 +31,6 @@ byte inTea;
 byte inMettaBhavana;
 byte inPomodoro;
 byte waitType;  //0 for pomodoroWorkTime 1 short break 2 long break
-int ms;
 //vars for loops (i&j in pomodoro and k in Metta Bhavana)
 int i = 0;
 int j = 0;
@@ -42,12 +41,11 @@ byte buttonReading;
 
 
 // trigger solenoid:
-int fireSolenoid() {
+void fireSolenoid() {
   digitalWrite(solenoidPin, HIGH);
   delay(200);
   digitalWrite(solenoidPin, LOW);
   Serial.print("\nFired Solenoid");
-  return 0;
 }
 void flashLight() {
   for (int l = 0; l < stateNumber; l++) {
@@ -112,19 +110,19 @@ void setup() {
 
   // set initial solenoid state
   digitalWrite(solenoidPin, 0);
-  Serial.begin(9600);
+  //Serial.begin(9600);
 }
 
 void loop() {
   pollSwitches();
-  Serial.print("\n");
-  Serial.print(stateNumber);
+  //Serial.print("\n");
+  //Serial.print(stateNumber);
   switch (stateNumber) {
 
 
     case 1:
 
-      Serial.print("\nEntered tea");
+      //Serial.print("\nEntered tea");
       if (startTimeChime == 0) { startTimeChime = millis(); }
       if (millis() - startTimeChime < 200) { fireSolenoid(); }
       if (inTea == 0) {
@@ -144,15 +142,15 @@ void loop() {
       break;
 
     case 2:
-      Serial.print("\nEntered Metta Bhavana");
+      //Serial.print("\nEntered Metta Bhavana");
       if (startTimeChime == 0) { startTimeChime = millis(); }
       if (millis() - startTimeChime < 200) { fireSolenoid(); }
       if (inMettaBhavana == 0) {
         flashLight();
         inMettaBhavana = 1;
       }
-      Serial.print("\nIn Metta Bhavana loop cycle ");
-      Serial.print(k);
+      //Serial.print("\nIn Metta Bhavana loop cycle ");
+      //Serial.print(k);
       if ((millis() - startWaitingTime > mettaBhavanaPeriod) && (k < 7)) {
         fireSolenoid();
         Serial.print("\nFired solenoid on round ");
@@ -185,8 +183,8 @@ void loop() {
       }
       switch (waitType) {
         case 0:
-          Serial.print("\nPomodoro Work Time ");
-          Serial.print(i);
+          //Serial.print("\nPomodoro Work Time ");
+          //Serial.print(i);
           //Serial.print(waitType);
           if (millis() - startWaitingTime > pomodoroWorkTime){
             fireSolenoid();
@@ -196,7 +194,7 @@ void loop() {
           break;
 
         case 1:
-          Serial.print("\nPomodoro Short Break");
+          //Serial.print("\nPomodoro Short Break");
           if (millis() - startWaitingTime > mettaBhavanaPeriod) {
             fireSolenoid();
             if (i < 3) {
@@ -212,7 +210,7 @@ void loop() {
               fireSolenoid();
               if (millis() - startWaitingTime > tea) {
                 fireSolenoid();
-                Serial.print("Tea to Finish");
+                //Serial.print("Tea to Finish");
                 inPomodoro = 0;
                 inTea = 0;
                 inMettaBhavana = 0;
@@ -226,8 +224,8 @@ void loop() {
             break;
           }
             case 2:
-              Serial.print("\nPomodoro Long Break ");
-              Serial.print(j);
+              //Serial.print("\nPomodoro Long Break ");
+              //Serial.print(j);
               if (millis() - startWaitingTime > pomodoroLongBreak) {
                 fireSolenoid();
                 j++;
