@@ -19,10 +19,10 @@ unsigned short etButtonDelay = 2000;
 unsigned short mettaBhavanaButtonDelay = 4000;
 unsigned short pomodoroButtonDelay = 6000;
 unsigned long switchPollDelay = 125;
-unsigned long pomodoroWorkTime = 7000;   //for testing set to 7000 for production set to 1200000;
-unsigned long pomodoroLongBreak = 10000;  //for testing set to 10000 sec for production set to 1800000;
-unsigned long mettaBhavanaPeriod = 5000;  //for testing set to 5000 for production set to 300000; //used for both Metta Bhavana and pomodoroShortBreak
-unsigned long tea = 1800;               //for testing set to 1800 for production set to 180000
+unsigned long pomodoroWorkTime = 1200000;   //for testing set to 7000 for production set to 1200000;
+unsigned long pomodoroLongBreak = 1800000;  //for testing set to 10000 sec for production set to 1800000;
+unsigned long mettaBhavanaPeriod = 300000;  //for testing set to 5000 for production set to 300000; //used for both Metta Bhavana and pomodoroShortBreak
+unsigned long tea = 180000;               //for testing set to 1800 for production set to 180000
 unsigned long startWaitingTime;
 unsigned long startTimeChime = 0;
 
