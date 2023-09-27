@@ -9,7 +9,8 @@ and Pomodoro Technique (((20mins, then 5mins)x4)then 30mins)x3 except for the la
 tell you your days work is done.
 
 The code is currently developed on the excellent Ukrainian Embedded IDE PlatformIO (If you don't already use it you should definatley
-check it out!) on VSCode. At the time of writing the code footprint on an Uno is: -
+check it out!) on VSCode. For an .ino file see https://github.com/GolfPapaEcho/YourChime At the time of writing the code footprint on an Uno is: -
+
 RAM:   [==        ]  15.2% (used 311 bytes from 2048 bytes)
 Flash: [=         ]  11.0% (used 3556 bytes from 32256 bytes)
 
